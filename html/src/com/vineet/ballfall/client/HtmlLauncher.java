@@ -7,13 +7,16 @@ import com.vineet.ballfall.Main;
 
 public class HtmlLauncher extends GwtApplication {
 
+        AdManager adManager;
+
         @Override
         public GwtApplicationConfiguration getConfig () {
-                return new GwtApplicationConfiguration(480, 320);
+                return new GwtApplicationConfiguration(320, 480);
         }
 
         @Override
         public ApplicationListener getApplicationListener () {
-                return new Main();
+                adManager = new AdManager(this);
+                return new Main(adManager);
         }
 }

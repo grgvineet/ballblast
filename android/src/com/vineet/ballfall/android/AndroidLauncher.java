@@ -24,7 +24,7 @@ public class AndroidLauncher extends AndroidApplication {
     protected View gameView;
     RelativeLayout layout;
 
-    AdManager fbManager;
+    AdManager adManager;
     public RevMob revmob;
     private RevMobFullscreen fullscreen;
     RevMobBanner banner;
@@ -37,7 +37,7 @@ public class AndroidLauncher extends AndroidApplication {
 		super.onCreate(savedInstanceState);
 		AndroidApplicationConfiguration config = new AndroidApplicationConfiguration();
 
-        fbManager = new AdManager(this);
+        adManager = new AdManager(this);
 
 		config.useAccelerometer = true;
 		config.useWakelock = true;
@@ -60,7 +60,7 @@ public class AndroidLauncher extends AndroidApplication {
 //        ViewGroup view = (ViewGroup) findViewById(R.id.adLayout);
 //        view.addView(banner);
 //
-//        gameView = initializeForView(new Main(fbManager), config);
+//        gameView = initializeForView(new Main(adManager), config);
 //        ViewGroup gameViewGroup = (ViewGroup) findViewById(R.id.gameLayout);
 //        gameViewGroup.addView(gameView);
 //
@@ -90,7 +90,7 @@ public class AndroidLauncher extends AndroidApplication {
     }
 
     private View createGameView(AndroidApplicationConfiguration cfg) {
-        gameView = initializeForView(new Main(fbManager), cfg);
+        gameView = initializeForView(new Main(adManager), cfg);
 //        gameView = initializeForView(new Main(), cfg);
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
         params.addRule(RelativeLayout.ALIGN_PARENT_TOP, RelativeLayout.TRUE);
